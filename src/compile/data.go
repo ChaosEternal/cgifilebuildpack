@@ -116,6 +116,10 @@ http {
       {{end}}
     }
   location /cgi-bin/ {
+        {{if .BasicAuth}}
+        auth_basic "Restricted";  #For Basic Auth
+        auth_basic_user_file <%= ENV["APP_ROOT"] %>/nginx/conf/.htpasswd;
+        {{end}}
   	   proxy_pass http://127.0.0.1:8000;
   }
 
