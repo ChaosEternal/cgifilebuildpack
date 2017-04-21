@@ -1,0 +1,25 @@
+---
+language: staticfile
+default_versions:
+- name: nginx
+  version: 1.11.13
+exclude_files:
+- ".git/"
+- ".gitignore"
+- ".gitmodules"
+- ".rspec"
+- cf_spec/
+- log/
+- test/
+- buildpack-packager/
+- staticfile_buildpack-*v*.zip
+- pkg/
+url_to_dependency_map: []
+dependencies:
+- name: nginx
+  version: 1.11.13
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx/nginx-1.11.13-linux-x64-0ae5f6fb.tgz
+  md5: 0ae5f6fbae17cffb087fea4b9518b4f7
+  cf_stacks:
+  - cflinuxfs2
+pre_package: scripts/build.sh
